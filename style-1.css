@@ -1,0 +1,78 @@
+/* style-1.css – jasny styl z tłem fox.png */
+
+body {
+    background-image: url("fox.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #222;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nagłówek i stopka */
+header, footer {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+}
+
+h1 {
+    color: #2b4b8d;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    color: #5c2b8d;
+    border-bottom: 2px solid #5c2b8d;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #2b8d73;
+    margin-top: 20px;
+}
+
+/* Główna treść */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* Listy */
+ul {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+/* Stopka */
+footer {
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* 🔹 Responsywność (telefony, tablety) */
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    header, footer {
+        padding: 10px;
+    }
+}
