@@ -1,0 +1,13 @@
+# IDE / edytory
+.vscode/
+.idea/
+*.iml
+
+# Systemowe
+.DS_Store
+Thumbs.db
+
+# Logi / cache / chwilówki
+*.log
+*.tmp
+*.zip
