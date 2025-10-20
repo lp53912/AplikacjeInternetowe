@@ -6,41 +6,136 @@
     <title>Laboratorium – Przełączanie styli</title>
     <script src="https://wi.arturk.pl/zen-style.js.php?styles[]=style-1&styles[]=style-2" defer></script>
 </head>
-<body>
+<body class="page">
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="site-title">Lis pospolity (Vulpes vulpes)</h1>
+      <p class="site-subtitle">Biologia, ekologia i współistnienie z człowiekiem</p>
+    </div>
+  </header>
 
-    <header>
-        <h1>Moja Strona Laboratoryjna</h1>
-        <p>Witamy na stronie z przełącznikiem styli!</p>
-    </header>
+  <main class="site-main">
+    <!-- Sekcja 1 -->
+    <section class="section" aria-labelledby="wprowadzenie">
+      <div class="wrap">
+        <h2 id="wprowadzenie" class="section__title">1. Wprowadzenie do gatunku</h2>
 
-    <main>
-        <h2>1. Wprowadzenie</h2>
-        <h3>Cel laboratorium</h3>
-        <p>Celem tego ćwiczenia jest poznanie sposobu działania przełączania styli CSS za pomocą zewnętrznego skryptu.</p>
-        <h3>Opis działania</h3>
-        <p>Skrypt dodany w sekcji head wczytuje dwa pliki CSS, które można przełączać za pomocą przycisku na stronie.</p>
+        <article class="block block--intro">
+          <h3 class="block__title">Klasyfikacja i zasięg</h3>
+          <p>Lis pospolity należy do rodziny psowatych i jest jednym z najszerzej rozpowszechnionych drapieżników lądowych świata. Występuje naturalnie na większości półkuli północnej, a dzięki wysokiej plastyczności zasiedla zarówno dzikie tereny, jak i krajobraz rolniczy oraz miasta.</p>
+          <p>Tworzy liczne podgatunki różniące się m.in. wielkością i odcieniem sierści, co odzwierciedla lokalne przystosowania środowiskowe.</p>
+        </article>
 
-        <h2>2. Struktura dokumentu</h2>
-        <h3>Podstawowe elementy HTML</h3>
-        <p>Każdy dokument HTML składa się z dwóch głównych części: sekcji head oraz body. W sekcji head umieszczamy metadane i odnośniki do plików zewnętrznych.</p>
-        <h3>Hierarchia nagłówków</h3>
-        <p>Ważne jest, aby zachować logiczną strukturę nagłówków: H1 to tytuł, H2 to podtytuły, a H3 opisują szczegóły w ramach H2.</p>
-        <ul>
-            <li>H1 – główny tytuł strony</li>
-            <li>H2 – sekcje główne</li>
-            <li>H3 – podsekcje w obrębie sekcji H2</li>
-        </ul>
+        <article class="block block--how">
+          <h3 class="block__title">Siedliska i adaptacje</h3>
+          <p>Preferuje mozaikę środowisk: skraje lasów, zarośla, łąki i pola uprawne, gdzie łatwo znaleźć kryjówki i pokarm. W miastach wykorzystuje parki, ogródki działkowe i nieużytki, budując nory pod budowlami lub w nasypach.</p>
+          <p>Elastyczna dieta oraz ostrożny, nocny tryb aktywności pomagają mu minimalizować kontakt z większymi drapieżnikami i ludźmi.</p>
+        </article>
+      </div>
+    </section>
 
-        <h2>3. Zakończenie</h2>
-        <h3>Podsumowanie</h3>
-        <p>Podczas tego laboratorium nauczyliśmy się tworzyć poprawny szkielet strony HTML oraz korzystać z zewnętrznego skryptu do przełączania styli.</p>
-        <h3>Wnioski</h3>
-        <p>Oddzielenie treści od prezentacji (HTML od CSS) jest kluczowe dla poprawnego projektowania stron internetowych.</p>
-    </main>
+    <!-- Sekcja 2 -->
+    <section class="section" aria-labelledby="budowa">
+      <div class="wrap">
+        <h2 id="budowa" class="section__title">2. Budowa i fizjologia</h2>
 
-    <footer>
-        <p>Autor: Jan Kowalski | &copy; 2025 Laboratorium HTML</p>
-    </footer>
+        <article class="block block--basics">
+          <h3 class="block__title">Umaszczenie i cechy morfologiczne</h3>
+          <p>Najczęściej spotykane umaszczenie to rude z jaśniejszym brzuchem, czarnymi końcówkami łap i białą końcówką puszystego ogona (kity). Sylwetka jest smukła, nogi długie, a pysk wąski i spiczasty.</p>
+          <p>Ubarwienie i gęstość futra zmieniają się sezonowo; zimą sierść jest dłuższa i lepiej izoluje przed chłodem.</p>
+        </article>
 
+        <article class="block block--hierarchy">
+          <h3 class="block__title">Zmysły i strategia łowiecka</h3>
+          <p>Lis ma znakomity słuch i węch, którymi lokalizuje ofiary pod śniegiem czy w gęstej trawie. Charakterystyczny „myszkowaniec” skok w górę i w dół pozwala mu zaskoczyć drobne gryzonie.</p>
+          <p>Wzrok dobrze wykrywa ruch o zmierzchu i w nocy, co zwiększa skuteczność polowań przy słabym oświetleniu.</p>
+          <ul class="list">
+            <li>Uszy duże, trójkątne – precyzyjna lokalizacja dźwięku.</li>
+            <li>Ogon (kita) – równowaga, termoregulacja, komunikacja.</li>
+            <li>Opuszki łap z sierścią – lepsza izolacja i cichy chód.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sekcja 3 -->
+    <section class="section" aria-labelledby="ekologia">
+      <div class="wrap">
+        <h2 id="ekologia" class="section__title">3. Ekologia i życie społeczne</h2>
+
+        <article class="block">
+          <h3 class="block__title">Dieta i rola w ekosystemie</h3>
+          <p>Jest wszystkożercą: podstawę stanowią gryzonie, ale zjada też ptaki, bezkręgowce, padlinę, owoce i rośliny. W środowisku rolniczym ogranicza liczebność szkodników, co bywa korzystne dla upraw.</p>
+          <p>Sezonowa zmienność pokarmu sprawia, że lis potrafi przestawić się na najłatwiej dostępne źródła energii, co zwiększa jego przeżywalność.</p>
+        </article>
+
+        <article class="block">
+          <h3 class="block__title">Rozród i wychów młodych</h3>
+          <p>Okres godowy przypada zimą, a po około 7–8 tygodniach rodzi się zwykle 4–6 szczeniąt. Młode pozostają w norze, którą para utrzymuje i broni, a opiekę sprawują oboje rodzice.</p>
+          <p>Odchów intensywnie wykorzystuje zapasy i łatwo dostępny pokarm; jesienią młode rozpraszają się, zakładając własne terytoria.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sekcja 4 -->
+    <section class="section" aria-labelledby="ochrona">
+      <div class="wrap">
+        <h2 id="ochrona" class="section__title">4. Ochrona i relacje z człowiekiem</h2>
+
+        <article class="block">
+          <h3 class="block__title">Zagrożenia i choroby</h3>
+          <p>Najpoważniejsze zagrożenia to wypadki drogowe, utrata siedlisk i choroby zakaźne, m.in. wścieklizna i świerzb. Programy szczepień oralnych znacząco ograniczyły ryzyko wścieklizny w wielu krajach.</p>
+          <p>Stan populacji jest stabilny, lecz lokalnie może spadać wskutek presji łowieckiej lub zmian w użytkowaniu terenu.</p>
+        </article>
+
+        <article class="block">
+          <h3 class="block__title">Współistnienie z ludźmi</h3>
+          <p>W miastach lisy korzystają z zasobów antropogenicznych, dlatego kluczowe jest zabezpieczanie odpadów i karmników. Unikanie dokarmiania ogranicza zbliżanie się zwierząt do zabudowań.</p>
+          <p>Edukacja mieszkańców i monitoring obecności drapieżników pomagają zmniejszać konflikty i sprzyjają bezpiecznemu współistnieniu.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Kafelki: ciekawostki (zostają dla demonstracji układu styli) -->
+    <section class="section" aria-labelledby="kafelki">
+      <div class="wrap">
+        <h2 id="kafelki" class="section__title">5. Ciekawostki o lisie</h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3 class="card__title">Komunikacja</h3>
+            <p>Lisy używają bogatego repertuaru sygnałów: wokalizacji, zapachów i mowy ciała. Ogon pełni ważną funkcję sygnalizacyjną w kontaktach z innymi osobnikami.</p>
+          </article>
+
+          <article class="card card--accent">
+            <h3 class="card__title">Nora</h3>
+            <p>Nory mają zwykle kilka wejść i komory gniazdowe. Wykorzystywane są wieloletnio, a lisy często adaptują opuszczone nory borsuków.</p>
+          </article>
+
+          <article class="card card--outline">
+            <h3 class="card__title">Sezonowość</h3>
+            <p>Aktywność dobowa nasila się o zmierzchu i świcie. Zimą lisy częściej polują w dzień, gdy skraca się noc i spada dostępność pokarmu.</p>
+          </article>
+        </div>
+
+        <div class="panels">
+          <div class="panel panel--info">
+            <h3 class="panel__title">Terytorialność</h3>
+            <p>Każda para lub samotny osobnik utrzymuje terytorium znaczone zapachowo. Granice są regularnie obchodzone i bronione przed intruzami.</p>
+          </div>
+          <div class="panel panel--note">
+            <h3 class="panel__title">Plastyczność pokarmowa</h3>
+            <p>Przejście z polowania na gryzonie na zbieranie owoców czy padliny pozwala lisom przetrwać okresy niedoboru i wahania liczebności ofiar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Autor: Piotr Lisinski &nbsp;|&nbsp; &copy; 2025 Informacje o lisie – materiał edukacyjny</p>
+    </div>
+  </footer>
 </body>
 </html>

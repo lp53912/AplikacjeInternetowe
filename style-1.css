@@ -1,78 +1,197 @@
-/* style-1.css – jasny styl z tłem fox.png */
-
-body {
-    background-image: url("fox.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #222;
-    font-family: "Segoe UI", Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+/* ========== Styl 1 (jasny) – AKCENTY: LEWA + DÓŁ ========== */
+:root{
+  --bg-text: #222;
+  --bg-muted: #475569;
+  --surface: rgba(255,255,255,0.9);
+  --surface-weak: rgba(255,255,255,0.75);
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --accent: #2b4b8d;
+  --accent-2: #2b8d73;
+  --accent-soft: #e0e7ff;
+  --radius: 16px;
+  --shadow: 0 12px 30px rgba(0,0,0,.18);
+  --maxw: 900px;              /* lekko węższa kolumna dla lepszej czytelności */
+  --font: "Segoe UI", Arial, sans-serif;
 }
 
-/* Nagłówek i stopka */
-header, footer {
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding: 20px;
-    backdrop-filter: blur(4px);
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
+body.page{
+  font-family: var(--font);
+  color: var(--bg-text);
+  line-height: 1.65;
+
+  /* Pełny lis na górze, bez przycinania */
+  background:
+    url("fox.png") top center / contain no-repeat fixed,  /* warstwa 1: obraz */
+    linear-gradient(#e8edf5, #e8edf5);                    /* warstwa 2: jasne tło pod spodem */
+  /* opcjonalnie ustaw kadr twarzy: */
+  /* background-position: center 20%, 0 0;  */
 }
 
-h1 {
-    color: #2b4b8d;
-    margin-bottom: 0.5em;
+.wrap{ max-width: var(--maxw); margin-inline: auto; padding: 16px; }
+
+/* Header/Footer – jasne szkło */
+.site-header,
+.site-footer{
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: var(--surface-weak);
+  border-bottom: 1px solid var(--border);
+}
+.site-footer{
+  border-top: 2px solid var(--accent-2);
+  border-bottom: 0;
+  text-align: center;
+  color: #334155;
 }
 
-h2 {
-    color: #5c2b8d;
-    border-bottom: 2px solid #5c2b8d;
-    padding-bottom: 5px;
+.site-title{
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: clamp(28px, 4vw, 42px);
+}
+.site-subtitle{ margin: 0; color: var(--bg-muted); }
+
+/* ===== SEKCJE – lewy pas + dolna kropkowana linia ===== */
+.section{ margin: 22px 0; }
+.section .wrap{
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--accent);           /* LEWA */
+  border-bottom: 3px dotted var(--border-strong); /* DÓŁ */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.section .wrap::after{ /* pinezka w LEWYM-DOLNYM rogu */
+  content:"";
+  position:absolute; left:10px; bottom:-6px;
+  width:12px; height:12px; border-radius:50%;
+  background: linear-gradient(180deg, #5c2b8d, #2b8d73);
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
 }
 
-h3 {
-    color: #2b8d73;
-    margin-top: 20px;
+/* H2 – lewa kolorowa belka */
+.section__title{
+  margin: 0 0 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: #5c2b8d;
+  position: relative;
+}
+.section__title::before{
+  content:"";
+  position:absolute; left:0; top:0; bottom:0; width:6px;
+  background: linear-gradient(180deg, #5c2b8d, #2b8d73);
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
 }
 
-/* Główna treść */
-main {
-    max-width: 900px;
-    margin: 20px auto;
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 20px;
-    border-radius: 15px;
+/* ===== BLOKI ===== */
+.block{
+  padding: 14px 16px 18px;
+  border-left: 4px solid var(--accent-2);      /* LEWA */
+  border-right: 2px dashed transparent;
+  background: linear-gradient(90deg, rgba(43,141,115,.05), transparent);
+}
+.block + .block{ border-top: 1px dashed var(--border); }
+.block__title{ margin: 6px 0 6px; font-size: 20px; color: var(--accent-2); }
+
+.block--intro{
+  border-left-color: var(--accent);
+  background: linear-gradient(0deg, transparent, rgba(43,75,141,0.06));
+}
+.block--how{ border-left-color: var(--accent-2); }
+
+/* ===== LISTY ===== */
+.list{ margin: 10px 0 0 18px; }
+.list li{ padding-left: 4px; margin: 4px 0; }
+
+/* ===== GRID KAFELKÓW – JEDNA KOLUMNA (również desktop) ===== */
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;     /* jeden pod drugim */
+  gap: 16px;
+  padding: 8px 16px 20px;
 }
 
-/* Listy */
-ul {
-    list-style-type: square;
-    margin-left: 20px;
+/* ===== KAFELKI ===== */
+.card{
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+.card__title{ margin: 0 0 6px; color: #2b4b8d; font-size: 18px; }
+
+.card--accent{
+  border-left: 8px solid var(--accent);        /* LEWA gruba */
+  background: linear-gradient(0deg, #fff, #f5f9ff);
+}
+.card--accent::after{                           /* DÓŁ podkreślenie */
+  content:""; position:absolute; left:12px; right:12px; bottom:-6px;
+  height: 6px; border-radius: 999px;
+  background: linear-gradient(90deg, #5c2b8d, #2b8d73);
+  opacity:.9;
+}
+.card--outline{
+  outline: 2px dashed #c7d2fe;
+  outline-offset: 4px;
 }
 
-/* Stopka */
-footer {
-    font-size: 0.9em;
-    color: #333;
+/* ===== PANELE – jedna kolumna ===== */
+.panels{
+  display: grid;
+  grid-template-columns: 1fr;      /* również jedna kolumna */
+  gap: 16px;
+  padding: 0 16px 20px;
+}
+.panel{
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-bottom: 4px solid var(--accent-2);    /* DÓŁ */
+  border-radius: 18px;
+  padding: 14px 14px 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.08);
+}
+.panel::before{                                 /* LEWA wstążka */
+  content:""; position:absolute; top:14px; left:14px;
+  width:10px; height:46px; border-radius:999px;
+  background: linear-gradient(180deg, #5c2b8d, #2b8d73);
+  box-shadow: 0 0 12px rgba(43,141,115,.35);
+}
+.panel__title{ margin: 0 0 6px; color: #2b8d73; font-size: 18px; }
+.panel--note{ border-style: dashed; background: linear-gradient(0deg, #fff, #f8fafc); }
+
+/* ===== Teksty / code ===== */
+p{ margin: 8px 0 10px; }
+code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: .95em; padding: .1em .35em;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: #1e293b;
 }
 
-/* 🔹 Responsywność (telefony, tablety) */
-@media (max-width: 768px) {
-    main {
-        width: 90%;
-        padding: 15px;
-    }
+/* Linki / focus */
+a{ color: var(--accent); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+:focus-visible{ outline: 3px solid #93c5fd; outline-offset: 3px; border-radius: 6px; }
 
-    h1 {
-        font-size: 1.6em;
-    }
-
-    h2 {
-        font-size: 1.3em;
-    }
-
-    header, footer {
-        padding: 10px;
-    }
+/* ===== Responsywność ===== */
+@media (max-width:768px){
+  body.page{ background-attachment: scroll; }
+  .site-title{ font-size: 28px; }
+  .section__title{ padding: 12px 14px; }
+  .block{ padding: 12px 14px 14px; }
+  .card, .panel{ padding: 12px; }
+}
+@media (max-width:420px){
+  .wrap{ padding: 12px; }
 }

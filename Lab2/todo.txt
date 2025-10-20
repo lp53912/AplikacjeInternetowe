@@ -1,0 +1,16 @@
+W ramach LAB B przygotowane powinny zostać:
+1. pojedyncza strona HTML ze skryptem ładowanym z zewnętrznego pliku JS (Java Script)
+2. lista zadań
+3. na dole listy pole tekstowe do dodawania nowych zadań, pole typu data/czas do określenia terminu wykonania zadania, przycisk dodawania zadania
+4. walidacja nowych zadań: co najmniej 3 znaki, nie więcej niż 255 znaków, data musi być pusta albo w przyszłości
+5. na górze listy pole wyszukiwarki
+6. po wpisaniu w wyszukiwarkę co najmniej 2 znaków na liście wyświetlają się wyłącznie pozycje zawierające wpisaną w wyszukiwarkę frazę
+7. wyszukiwana fraza zostaje wyróżniona w każdym wyniku wyszukiwania
+8. kliknięcie na dowolną pozycję listy zmienia ją w pole edycji; kliknięcie poza pozycję listy zapisuje zmiany
+9. obok każdej pozycji listy znajduje się przycisku Usuń / Śmietnik
+10. wpisy na liście zapisują się do Local Storage
+11. po odświeżeniu strony lista wypełnia się wpisami z Local Storage
+
+Prace rozpocznij od implementacji HTML z danymi wpisanymi „na sztywno”. Upewnij się, że wstawione zostały wszystkie wymagane elementy – pole wyszukiwarki, lista, pole dodawania, przycisk usuwania.
+
+

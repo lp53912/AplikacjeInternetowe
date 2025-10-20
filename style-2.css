@@ -1,79 +1,259 @@
-/* style-2.css – ciemny styl z tłem fox.png */
-
-body {
-    background-image: url("fox.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #f5f5f5;
-    font-family: "Verdana", sans-serif;
-    line-height: 1.7;
-    margin: 0;
-    padding: 0;
+/* ========== Styl 2 (ciemny / neon) – AKCENTY: PRAWA + GÓRA ========== */
+:root{
+  --text: #e8eef6;
+  --muted: #a9b4c6;
+  --surface: rgba(8,12,20,0.78);
+  --surface-strong: rgba(7,10,16,0.88);
+  --border: #162235;
+  --border-strong: #1f2f4a;
+  --accent: #ff9800;    /* pomarańczowy neon */
+  --accent-2: #80cbc4;  /* turkus */
+  --accent-3: #fbc02d;  /* żółty */
+  --radius: 14px;
+  --radius-lg: 18px;
+  --shadow: 0 14px 40px rgba(0,0,0,.45);
+  --glow: 0 0 0 2px rgba(255,152,0,.18), 0 0 22px rgba(255,152,0,.25);
+  --maxw: 1200px;       /* szersza maksy. szer. – miejsce na 2–3 kafelki */
+  --font: "Verdana", "Segoe UI", Arial, sans-serif;
 }
 
-/* Nagłówek i stopka */
-header, footer {
-    background-color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    padding: 25px;
-    border-bottom: 2px solid #ff9800;
-    backdrop-filter: blur(6px);
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
+body.page{
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.7;
+
+  /* Pełny lis na górze, bez przycinania */
+  background:
+    url("fox.png") top center / contain no-repeat fixed,  /* warstwa 1: obraz */
+    linear-gradient(#0b1020, #0b1020);                    /* warstwa 2: ciemne tło pod spodem */
+  /* opcjonalnie kadr: */
+  /* background-position: center 20%, 0 0; */
 }
 
-h1 {
-    color: #ff9800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+
+.wrap{
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 18px;
 }
 
-h2 {
-    color: #80cbc4;
-    border-left: 5px solid #80cbc4;
-    padding-left: 10px;
+/* ===== Header/Footer – szkło, neon ===== */
+.site-header{
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: var(--surface-strong);
+  border-bottom: 3px solid var(--accent);      /* GÓRA layoutu akcentowana na headerze */
+  box-shadow: 0 6px 22px rgba(0,0,0,.35);
+}
+.site-footer{
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: var(--surface-strong);
+  border-top: 2px solid var(--accent-2);
+  box-shadow: 0 -6px 22px rgba(0,0,0,.35);
+  text-align: center;
+  color: var(--muted);
 }
 
-h3 {
-    color: #fbc02d;
+/* ===== Tytuły ===== */
+.site-title{
+  margin: 0 0 6px;
+  font-size: clamp(26px, 4vw, 40px);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 0 rgba(0,0,0,.4);
+}
+.site-subtitle{ margin: 0; color: var(--muted); }
+
+/* ===== SEKCJE – PRAWA + GÓRA =====
+   Kontra do Stylu 1 (LEWA + DÓŁ) */
+.section{ margin: 24px 0; }
+.section .wrap{
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-right: 6px solid var(--accent);       /* PRAWA – gruby akcent */
+  border-top: 3px dotted var(--border-strong); /* GÓRA – kropkowana */
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.section .wrap::after{ /* pinezka w PRAWYM-GÓRNYM rogu */
+  content:"";
+  position:absolute; right:10px; top:-6px;
+  width:12px; height:12px; border-radius:50%;
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  box-shadow: 0 4px 10px rgba(0,0,0,.35);
 }
 
-/* Główna treść */
-main {
-    max-width: 900px;
-    margin: 30px auto;
-    background-color: rgba(0, 0, 0, 0.75);
-    padding: 25px;
-    border-radius: 10px;
+/* H2 – neonowa taśma NAD tytułem, bez lewego paska */
+.section__title{
+  margin: 0 0 14px;
+  padding: 16px 18px 12px;
+  color: var(--accent-2);
+  border-bottom: 1px dashed var(--border-strong);
+  position: relative;
+}
+.section__title::after{
+  content: "";
+  position: absolute;
+  left: 18px; right: 18px; top: -10px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+  box-shadow: 0 0 20px rgba(128,203,196,.45);
 }
 
-/* Listy */
-ul {
-    list-style-type: circle;
-    margin-left: 25px;
+/* ===== BLOKI – GÓRNY pasek + PRAWY dash ===== */
+.block{
+  padding: 14px 16px 16px;
+  border-top: 4px solid var(--accent-2);       /* GÓRA */
+  border-right: 2px dashed var(--border-strong);/* PRAWY dash */
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+}
+.block + .block{
+  border-top: 3px dashed var(--border);
+}
+.block__title{
+  margin: 6px 0 8px;
+  font-size: 20px;
+  color: var(--accent-3);
+  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
+.block--intro{
+  border-top-color: var(--accent);             /* wzmocniony GÓRNY akcent */
+  box-shadow: var(--glow);
+  background: linear-gradient(180deg, rgba(255,152,0,.06), transparent);
+}
+.block--how{
+  border-top-color: var(--accent-2);
+  background: linear-gradient(180deg, rgba(128,203,196,.04), transparent);
 }
 
-/* Stopka */
-footer {
-    border-top: 2px solid #ff9800;
-    font-size: 0.9em;
+/* ===== LISTY ===== */
+.list{ margin: 12px 0 0 22px; color: var(--text); }
+.list li{ margin: 6px 0; list-style-type: circle; }
+
+/* ===== GRID KAFELKÓW – GĘSTSZY UKŁAD =====
+   Desktop ≥ 1100px: 3 kolumny
+   Tablet 700–1099px: 2 kolumny
+   Mobile < 700px: 1 kolumna */
+.grid{
+  display: grid;
+  gap: 14px;                          /* ciaśniej niż w Stylu 1 */
+  padding: 10px 18px 22px;
+  grid-template-columns: repeat(3, minmax(0,1fr));
 }
 
-/* 🔹 Responsywność */
-@media (max-width: 768px) {
-    main {
-        width: 90%;
-        padding: 15px;
-    }
+/* ===== KAFELKI – akcent PRAWY + GÓRNY underline =====
+   (odwrotnie niż w Stylu 1: LEWY + DÓŁ) */
+.card{
+  position: relative;
+  background: rgba(13,18,30,0.9);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.5);
+}
+.card__title{ margin: 0 0 8px; color: var(--accent-2); font-size: 18px; }
 
-    h1 {
-        font-size: 1.5em;
-    }
+.card--accent{
+  border-right: 8px solid var(--accent);       /* PRAWA gruba */
+  background: linear-gradient(180deg, rgba(255,152,0,.08), rgba(13,18,30,0.9));
+  box-shadow: 0 0 0 1px rgba(255,152,0,.15), 0 0 28px rgba(255,152,0,.25);
+}
+.card--accent::before{                          /* GÓRNE podkreślenie */
+  content:""; position:absolute; left:12px; right:12px; top:-6px;
+  height: 6px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  opacity:.9;
+}
+.card--outline{
+  outline: 3px double rgba(128,203,196,.6);
+  outline-offset: 6px;
+}
 
-    h2 {
-        font-size: 1.2em;
-    }
+/* ===== PANELE – dwie kolumny na desktopie, neon „tab” po PRAWEJ, grubszy GÓRNY border ===== */
+.panels{
+  display: grid;
+  grid-template-columns: 1fr 1fr;     /* ciaśniej niż w Stylu 1 (tam była 1 kolumna) */
+  gap: 14px;
+  padding: 0 18px 22px;
+}
+.panel{
+  background: rgba(13,18,30,0.92);
+  border: 1px solid var(--border-strong);
+  border-top: 4px solid var(--accent-2);       /* GÓRA */
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 26px rgba(0,0,0,.5);
+  position: relative;
+}
+.panel::after{                                   /* PRAWY neon „tab” */
+  content: "";
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 10px; height: 46px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 16px rgba(255,152,0,.35);
+}
+.panel__title{
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 18px;
+  letter-spacing: .5px;
+}
+.panel--note{
+  border-style: dashed;
+  background: linear-gradient(180deg, rgba(128,203,196,.06), rgba(13,18,30,0.92));
+}
 
-    header, footer {
-        padding: 10px;
-    }
+/* ===== Teksty / code ===== */
+p{ margin: 10px 0 12px; color: var(--text); }
+code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: .95em;
+  padding: .15em .45em;
+  border: 1px solid rgba(255,152,0,.35);
+  border-radius: 6px;
+  background: rgba(255,152,0,.08);
+  color: #ffe7c2;
+}
+
+/* Linki / Focus */
+a{ color: var(--accent-2); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+:focus-visible{
+  outline: 3px solid rgba(128,203,196,.7);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ===== Responsywność ===== */
+@media (max-width: 1099px){
+  .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .panels{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 699px){
+  body.page{ background-attachment: scroll; }
+  .wrap{ padding: 14px; }
+
+  .grid{ grid-template-columns: 1fr; gap: 12px; }
+  .panels{ grid-template-columns: 1fr; gap: 12px; }
+
+  .section .wrap{
+    border-right-width: 5px;
+    border-top-width: 3px;
+    border-radius: var(--radius);
+  }
+  .section__title{ padding: 14px; }
+  .card, .panel{ padding: 14px; }
+  .site-title{ font-size: 26px; letter-spacing: .5px; }
+}
+@media (max-width: 420px){
+  .wrap{ padding: 12px; }
+  .section__title::after{ left: 12px; right: 12px; }
 }
