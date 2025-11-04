@@ -1,0 +1,11 @@
+W ramach LAB C przygotowane powinny zostać:
+1. pojedyncza strona HTML ze skryptem ładowanym z zewnętrznego pliku JS
+2. pobranie zgody na lokalizację
+3. pobranie zgody na wyświetlanie powiadomień
+4. okno dynamicznej mapy (powiększanie/pomniejszanie, przesuwanie)
+5. przycisk „Moja lokalizacja” – wyświetla współrzędne oraz oznacza na mapie
+6. przycisk „Pobierz mapę” – eksportuje mapę w postaci rastrowej
+7. mapa rastrowa zostaje podzielona na 16 elementów i wymieszana; elementy rozrzucone na „stole”
+8. użycie mechanizmu drag & drop do przemieszczania elementów na „stole”
+9. w tle weryfikacja czy element ustawiony na swoim miejscu
+10. w momencie ustawienia wszystkich elementów na swoim miejscu – wyświetlenie notyfikacji systemowej (https://developer.mozilla.org/en-US/docs/Web/API/Notification)
