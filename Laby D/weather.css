@@ -1,0 +1,219 @@
+/* === Ogólne ustawienia === */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to bottom, #89f7fe, #66a6ff); /* gradient nieba */
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* === Główny kontener === */
+#weather-search-params, #weather-results-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* === Nagłówek === */
+#weather-search-params h1 {
+    font-size: 28px;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+/* === Pole tekstowe === */
+#locationInput {
+    padding: 10px;
+    width: 65%;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    outline: none;
+}
+
+/* === Przycisk === */
+#checkButton {
+    padding: 10px 18px;
+    margin-left: 8px;
+    cursor: pointer;
+    border: none;
+    background: #ffb400;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+#checkButton:hover {
+    background: #ff9800;
+    transform: scale(1.05);
+}
+
+/* === Pojedynczy blok pogody === */
+.weather-block {
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.7); /* półprzezroczysty efekt szkła */
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin: 20px auto;
+    padding: 15px;
+    position: relative;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.weather-block:hover {
+    transform: scale(1.02);
+}
+
+/* === Wnętrze karty === */
+.weather-date {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.weather-temperature {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0078ff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.weather-temperature-feels-like {
+    font-size: 14px;
+    color: #333;
+    margin-top: 4px;
+}
+
+.weather-description {
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
+    margin-top: 5px;
+}
+
+.weather-icon {
+    width: 80px;
+    height: 80px;
+    float: right;
+}
+
+/* === Responsywność === */
+@media (max-width: 480px) {
+    #weather-search-params, #weather-results-container {
+        width: 95%;
+    }
+    #locationInput {
+        width: 60%;
+    }
+}
+
+/* ☀️ Słonecznie */
+.sunny-bg {
+    background: linear-gradient(to bottom, #89f7fe, #66a6ff);
+    background-attachment: fixed;
+    color: #111;
+}
+
+/* ☁️ Pochmurno */
+.cloudy-bg {
+    background: linear-gradient(to bottom, #d7d2cc, #304352);
+    background-attachment: fixed;
+    color: white;
+}
+
+/* 🌧️ Deszcz */
+.rainy-bg {
+    background: linear-gradient(to bottom, #283E51, #485563);
+    background-attachment: fixed;
+    color: white;
+}
+
+/* ❄️ Śnieg */
+.snowy-bg {
+    background: linear-gradient(to bottom, #E0EAFC, #CFDEF3);
+    background-attachment: fixed;
+    color: #222;
+}
+
+/* 🌫️ Mgła */
+.foggy-bg {
+    background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+    background-attachment: fixed;
+    color: white;
+}
+
+/* 🌈 Domyślne */
+.default-bg {
+    background: linear-gradient(to bottom, #89f7fe, #66a6ff);
+    background-attachment: fixed;
+    color: #111;
+}
+
+/* Płynne przejście między tłami */
+body {
+    transition: background 1.2s ease, color 0.8s ease;
+}
+
+/* === Efekty pogodowe animowane === */
+.weather-animation {
+    position: fixed;
+    top: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 🌧️ Deszcz */
+.rain-drop {
+    width: 2px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.6);
+    animation: rainFall linear infinite;
+}
+
+@keyframes rainFall {
+    0% { transform: translateY(-10vh); opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/* ❄️ Śnieg */
+.snow-flake {
+    position: fixed;
+    top: -10vh;
+    animation: snowFall linear infinite;
+    color: white;
+    text-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+@keyframes snowFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ☁️ Chmury */
+.cloud {
+    width: 150px;
+    height: 80px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    box-shadow:
+        30px 20px 40px rgba(255,255,255,0.9),
+        60px 20px 60px rgba(255,255,255,0.9);
+    animation: cloudMove linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes cloudMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(120vw); }
+}
